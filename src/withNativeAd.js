@@ -9,11 +9,9 @@
  */
 
 import React from 'react';
-import { requireNativeComponent } from 'react-native';
 import AdsManager from './NativeAdsManager';
+import NativeAdView from './NativeAdView';
 import type { NativeAd } from './types';
-
-const NativeAdView = requireNativeComponent('CTKNativeAd', null);
 
 type NativeAdWrapperState = {
   ad: ?NativeAd,
