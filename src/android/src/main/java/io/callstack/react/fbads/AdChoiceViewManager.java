@@ -16,7 +16,6 @@ import com.facebook.yoga.YogaMeasureFunction;
 import com.facebook.yoga.YogaMeasureMode;
 import com.facebook.yoga.YogaMeasureOutput;
 import com.facebook.yoga.YogaNode;
-import com.facebook.yoga.YogaNodeAPI;
 
 public class AdChoiceViewManager extends SimpleViewManager<RelativeLayout> {
     public final static String NAME = "CTKAdChoice";
@@ -78,7 +77,7 @@ public class AdChoiceViewManager extends SimpleViewManager<RelativeLayout> {
         }
 
         @Override
-        public long measure(YogaNodeAPI node, float width, YogaMeasureMode widthMode, float height, YogaMeasureMode heightMode) {
+        public long measure(YogaNode node, float width, YogaMeasureMode widthMode, float height, YogaMeasureMode heightMode) {
             if (mWidth > 0) {
                 return YogaMeasureOutput.make(mWidth, 50);
             }

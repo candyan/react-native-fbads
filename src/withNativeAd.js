@@ -12,6 +12,7 @@ import React from 'react';
 import AdsManager from './NativeAdsManager';
 import NativeAdView from './NativeAdView';
 import type { NativeAd } from './types';
+import { findNodeHandle } from 'react-native';
 
 type NativeAdWrapperState = {
   ad: ?NativeAd,
@@ -67,8 +68,9 @@ export default (Component: Function) => class NativeAdWrapper extends React.Comp
       <NativeAdView
         adsManager={adsManager.toJSON()}
         onAdLoaded={(e) => this.setState({ ad: e.nativeEvent })}
+        ref={root => this.rootRef = findNodeHandle(root)}
       >
-        {this.state.ad && <Component nativeAd={this.state.ad} {...props} />}
+        {this.state.ad && <Component nativeAd={this.state.ad} {...props} nativeAdView={this.rootRef}/>}
       </NativeAdView>
     );
   }
